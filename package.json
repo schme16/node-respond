@@ -1,0 +1,28 @@
+{
+  "name": "node-respond",
+  "version": "0.0.1",
+  "description": "node-respond is an auto-responding Async CLI/CMD wrapper for NodeJS with a syntax based on ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/schme16/node-respond.git"
+  },
+  "author": "Shane Gadsby",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "3a5089cd9b5a28d1b3e595eed1389f998c544434",
+  "keywords": [
+    "node",
+    "nodejs",
+    "suppose",
+    "respond",
+    "child_proccess",
+    "CLI",
+    "CMD",
+    "async",
+    "wrapper"
+  ]
+}
