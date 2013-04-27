@@ -1,5 +1,5 @@
 ****
-node-respond
+Respond
 =============
 ****
 node-respond is an auto-responding Async `CLI`/`CMD` wrapper for `NodeJS` with a syntax based on 
@@ -19,30 +19,42 @@ It's really that easy!
 
 Usage
 ----
-```
-var respond = require('respond');
+Note: you can set these in any order you please.
 
-respond('npm', ['init'])
-.on(/name\: \([\w|\-]+\)[\s]*/, 'awesome_package')
-.on('version: (0.0.0) ', '0.0.1')
-.on('description: ',"It's an awesome package man!")
-.on('entry point: (index.js) ',"")
-.on('test command: ','npm test')
-.on('git repository: ', "")
-.on('keywords: ', 'awesome, cool')
-.on('author: ', 'Shane Gadsby')
-.on('license: (BSD) ', 'MIT')
-.on('ok? (yes) ', 'yes')
-.error(function(err){
-    console.log(err.message);
-})
-.end(function(code){
-    var packageFile = '/tmp/awesome/package.json';
-    fs.readFile(packageFile, function(err, data){
-        var packageObj = JSON.parse(data.toString());
-        console.log(packageObj.name); //'awesome_package'
+Initiate the funtion: `var respond = require('respond');`
+
+Set responses: `respond.on('what to listen for', 'what to respond with')`
+NOTE: they don't have to be in order!
+
+Set debug: `respond.debug(function(msg){ /*Handle message data*/ })`
+Debug reports all strings to any functions you set to it.
+
+Set error handlers: `respond.error(function(errMsg){ /*Handle Error*/ })`
+
+Set end handlers: `respond.end(function(exitCode){ /*Handle End*/ })`
+
+Example
+----
+```
+    var respond = require('respond');
+    
+    respond('npm', ['init'])
+    .on(/name\: \([\w|\-]+\)[\s]*/, 'awesome_package')
+    .on('version: (0.0.0) ', '0.0.1')
+    .on('description: ',"It's an awesome package man!")
+    .on('entry point: (index.js) ',"")
+    .on('test command: ','npm test')
+    .on('git repository: ', "")
+    .on('keywords: ', 'awesome, cool')
+    .on('author: ', 'Shane Gadsby')
+    .on('license: (BSD) ', 'MIT')
+    .on('ok? (yes) ', 'yes')
+    .error(function(err){
+        console.log(err.message);
     })
-})
+    .end(function(code){
+        console.log('Exit code: ', code)
+    })
 ```
 
 License
