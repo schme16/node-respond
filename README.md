@@ -21,40 +21,40 @@ Usage
 ----
 Note: you can set these in any order you please.
 
-Initiate the funtion: `var respond = require('respond');`
+Initiate the funtion: `let respond = require('respond');`
 
 Set responses: `respond.on('what to listen for', 'what to respond with')`
 NOTE: they don't have to be in order!
 
-Set debug: `respond.debug(function(msg){ /*Handle message data*/ })`
+Set debug: `respond.debug((msg) => { /*Handle message data*/ })`
 Debug reports all strings to any functions you set to it.
 
-Set error handlers: `respond.error(function(errMsg){ /*Handle Error*/ })`
+Set error handlers: `respond.error((errMsg) => { /*Handle Error*/ })`
 
-Set end handlers: `respond.end(function(exitCode){ /*Handle End*/ })`
+Set end handlers: `respond.end((exitCode) => { /*Handle End*/ })`
 
 Example
 ----
 ```
-    var respond = require('respond');
-    
+   let respond = require(__dirname + '/../main.js');
+
     respond('npm', ['init'])
-    .on(/name\: \([\w|\-]+\)[\s]*/, 'awesome_package')
-    .on('version: (0.0.0) ', '0.0.1')
-    .on('description: ',"It's an awesome package man!")
-    .on('entry point: (index.js) ',"")
-    .on('test command: ','npm test')
-    .on('git repository: ', "")
-    .on('keywords: ', 'awesome, cool')
-    .on('author: ', 'Shane Gadsby')
-    .on('license: (BSD) ', 'MIT')
-    .on('ok? (yes) ', 'yes')
-    .error(function(err){
-        console.log(err.message);
-    })
-    .end(function(code){
-        console.log('Exit code: ', code)
-    })
+        .on(new RegExp('package name:', 'igm'), 'awesome_package')
+        .on('version:', '0.0.1')
+        .on('description:', "It's an awesome package man!")
+        .on('entry point:', "")
+        .on('test command:', 'npm test')
+        .on('git repository:', "")
+        .on('keywords:', 'awesome, cool')
+        .on('author:', 'Shane Gadsby')
+        .on('license:', 'MIT')
+        .on('is this OK?', 'yes')
+        .error((err) => {
+            console.log(err.message);
+        })
+        .end((code) => {
+            console.log('Exit code: ', code)
+        })
 ```
 
 License
