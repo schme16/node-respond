@@ -14,9 +14,7 @@ absolute nightmare of spaghetti, and so this was born!
 
 Installation
 ------------
-    npm install respond
-It's really that easy!
-
+    npm install respond --save
 Usage
 ----
 Note: you can set these in any order you please.
@@ -61,7 +59,7 @@ License
 -------
 (MIT License)
 
-Copyright 2013, Shane Gadsby
+Copyright 2022, Shane Gadsby
 
 [twitter]: http://twitter.com/schme16
 [github]: https://github.com/schme16
