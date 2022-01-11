@@ -1,6 +1,6 @@
 {
 	"name": "node-respond",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "node-respond is an auto-responding Async CLI/CMD wrapper for NodeJS with a syntax based on ",
 	"main": "main.js",
 	"scripts": {
